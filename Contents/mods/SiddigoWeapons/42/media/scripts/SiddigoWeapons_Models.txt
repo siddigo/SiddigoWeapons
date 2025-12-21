@@ -1,0 +1,23 @@
+module Base
+{
+
+    model SkullCrusher
+    {
+        mesh = WorldItems/SkullCrusher,
+        texture = WorldItems/SkullCrusher,
+        scale = 0.10,    
+   
+        attachment world
+		{
+			offset = 0.0000 0.4000 -0.0300,
+			rotate = 0.0000 90.0000 87.0000,
+		}
+                
+		attachment Bip01_Prop1
+		{
+			offset = 0.0100 -0.1000 0.0000,
+			rotate = 0.0000 90.0000 0.0000,
+		}
+    }		
+
+}   

@@ -1,0 +1,62 @@
+module SiddigoWeapons
+{
+    import
+    {
+        Base
+    }
+
+    item SkullCrusher
+    {
+        DisplayName		= Skull Crusher,
+        DisplayCategory = Weapon,
+        ItemType			= base:Weapon,
+        Weight				= 6,
+        Icon				= SkullCrusher,
+		WeaponSprite = SkullCrusher,
+		AlwaysKnockdown = TRUE,
+		AttachmentType = BigBlade,
+        BaseSpeed = 0.8,
+        BreakSound = SledgehammerBreak,
+		CantAttackWithLowestEndurance = TRUE,
+		Categories = Blunt,
+		ConditionLowerChanceOneIn = 25,
+        ConditionMax = 10,
+		CritDmgMultiplier = 2,
+		DoorDamage = 40,
+		DoorHitSound = SledgehammerHit,
+		DropSound = SledgehammerDrop,
+		EnduranceMod = 3,
+		HitFloorSound = SledgehammerHit,
+		HitSound = SledgehammerHit,
+		IdleAnim = Idle_Weapon2,
+		MaxDamage = 3,
+		MinDamage = 2,
+		MaxHitCount = 3,
+		MaxRange = 1.35,
+		MinRange = 0.7,
+		MetalValue = 0,
+		MinAngle = 0.8, 
+		RequiresEquippedBothHands = TRUE,
+		RunAnim = Run_Weapon2,
+		SplatBloodOnNoDeath = FALSE,
+		SubCategory = Swinging,
+		SwingAnim = Heavy,
+		SwingSound = SledgehammerSwing,
+		SwingTime = 2,
+		TreeDamage = 10,
+		TwoHandWeapon = TRUE,
+		WeaponLength = 1.1,
+		Tags = base:Sledgehammer;base:HasToolHead;base:RepairWithGlue;base:RepairWithTape,
+        OnBreak = OnBreak.Sledgehammer,
+        HeadCondition = 10,
+        HeadConditionLowerChanceMultiplier = 1,
+        ResearchableRecipes = MakeSkullCrusher,
+        WorldStaticModel = SkullCrusher,
+        
+		SplatNumber = 3,
+		KnockBackOnNoDeath = TRUE,
+		KnockdownMod = 3,
+		PushBackMod = 1,
+
+    }
+}   
