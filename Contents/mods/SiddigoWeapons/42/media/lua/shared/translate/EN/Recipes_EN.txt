@@ -1,3 +1,0 @@
-Recipes_EN ={
-    MakeSkullCrusher = "Make Skull Crusher",
-}

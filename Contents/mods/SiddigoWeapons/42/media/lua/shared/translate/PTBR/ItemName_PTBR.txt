@@ -1,3 +1,0 @@
-ItemName_PTBR = {
-    ItemName_SiddigoWeapons.SkullCrusher = "Racha Cuca",
-}
