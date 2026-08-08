@@ -1,23 +1,21 @@
 module Base
 {
-
     craftRecipe MakeSkullCrusher
     {
         time = 200,
-        tags = AnySurfaceCraft,
+        Tags = AnySurfaceCraft,
         category = Weaponry,
         timedAction = CraftWeapon2H,
         SkillRequired = Maintenance:2;Masonry:3;Carving:3,
         xpAward = Maintenance:10,
-        needTobeLearn = false,
-        /*AutoLearnAny = Maintenance:4,*/
+        NeedToBeLearn = false,
         inputs
         {
             item 1 [Base.LargeStone] flags[Prop1],
             item 1 [Base.LongHandle] flags[Prop2],
             item 2 [Base.DuctTape],
             item 4 [Base.LeatherStrips] mode:destroy,
-            item 1 tags[MetalworkingPunch;SmallPunch;CrudeChisel;MasonsChisel;] mode:keep flags[MayDegradeLight],
+            item 1 tags[base:metalworkingpunch;base:smallpunch;base:crudechisel;base:masonschisel] mode:keep flags[MayDegradeLight],
         }
         outputs
         {

@@ -1,0 +1,10 @@
+# Lixo do Windows/editor
+Thumbs.db
+desktop.ini
+*.bak
+*~
+
+# Artefatos do jogo, caso algum caia aqui por engano
+console.txt
+hs_err_pid*.log
+*.hprof
