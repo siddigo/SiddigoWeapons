@@ -1,6 +1,6 @@
 version=1
 id=3612982532
-title=Siddigo's Weapons [B42.13]
+title=Survivor Weapons [B42.13]
 description=This mod adds some craftable Weapons, inspired by others games
 description=
 description=Weapons:
