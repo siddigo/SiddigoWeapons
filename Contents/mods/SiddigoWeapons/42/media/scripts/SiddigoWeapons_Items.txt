@@ -12,6 +12,7 @@ module SiddigoWeapons
         ItemType = base:weapon,
         Weight = 6.0,
         Icon = SkullCrusher,
+        WeaponSprite = SkullCrusher,
         WorldStaticModel = SkullCrusher,
         AlwaysKnockdown = true,
         AttachmentType = BigBlade,
