@@ -8,7 +8,8 @@ module Base
         timedAction = CraftWeapon2H,
         SkillRequired = Maintenance:2;Masonry:3;Carving:3,
         xpAward = Maintenance:10,
-        NeedToBeLearn = false,
+        NeedToBeLearn = true,
+        AutoLearnAll = Maintenance:4;Masonry:5;Carving:5,
         inputs
         {
             item 1 [Base.LargeStone] flags[Prop1],

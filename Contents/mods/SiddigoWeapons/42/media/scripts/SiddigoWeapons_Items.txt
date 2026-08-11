@@ -59,4 +59,19 @@ module SiddigoWeapons
         WeaponLength = 1.1,
         Tags = base:sledgehammer;base:hastoolhead;base:repairwithglue;base:repairwithtape,
     }
+
+    item SurvivorCraftMag1
+    {
+        DisplayCategory = RecipeResource,
+        ItemType = base:literature,
+        Weight = 0.5,
+        Icon = SurvivorCraftMag1,
+        BoredomChange = -20,
+        StressChange = -15,
+        LearnedRecipes = MakeSkullCrusher,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+        Tags = base:magazine,
+        OnCreate = ItemCodeOnCreate.onCreateRecipeMagazine,
+    }
 }
