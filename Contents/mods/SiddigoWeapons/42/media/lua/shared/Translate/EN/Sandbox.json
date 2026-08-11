@@ -1,0 +1,7 @@
+{
+    "Sandbox_SiddigoWeapons": "Survivor Weapons",
+    "Sandbox_SiddigoWeapons_SpawnSkullCrusher": "Skull Crusher spawns in the world",
+    "Sandbox_SiddigoWeapons_SpawnSkullCrusher_tooltip": "When off, the Skull Crusher is never found as loot. It can still be crafted.",
+    "Sandbox_SiddigoWeapons_SpawnSurvivorCraftMag1": "Survivor's Craft Digest spawns in the world",
+    "Sandbox_SiddigoWeapons_SpawnSurvivorCraftMag1_tooltip": "When off, the magazine is never found as loot. Recipes can still be learned by skill or by researching an item."
+}

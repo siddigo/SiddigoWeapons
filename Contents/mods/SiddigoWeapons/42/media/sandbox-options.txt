@@ -1,0 +1,17 @@
+VERSION = 1,
+
+option SiddigoWeapons.SpawnSkullCrusher
+{
+    type = boolean,
+    default = true,
+    page = SiddigoWeapons,
+    translation = SiddigoWeapons_SpawnSkullCrusher,
+}
+
+option SiddigoWeapons.SpawnSurvivorCraftMag1
+{
+    type = boolean,
+    default = true,
+    page = SiddigoWeapons,
+    translation = SiddigoWeapons_SpawnSurvivorCraftMag1,
+}
