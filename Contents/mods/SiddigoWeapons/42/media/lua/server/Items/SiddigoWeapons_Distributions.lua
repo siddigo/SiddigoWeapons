@@ -30,33 +30,27 @@ local function spawns(optionName)
     return v == true
 end
 
--- Skull Crusher: mochila do sobrevivente (todas as eras), corpo do zumbi (so era Late),
--- abrigo/acampamento e listas de arma improvisada. Conjunto 04-loot-de-sobrevivente,
--- SPEC-01 a 03; gate de sandbox somado por 05-opcoes-de-sandbox/SPEC-03.
+-- Skull Crusher: mochila do sobrevivente (todas as eras), abrigo/acampamento e listas de arma
+-- improvisada. Conjunto 04-loot-de-sobrevivente, SPEC-01 e 03; gate de sandbox somado por
+-- 05-opcoes-de-sandbox/SPEC-03. A rota visivel nas costas do zumbi e o AttachedWeaponDefinitions,
+-- em arquivo proprio -- ver SiddigoWeapons_AttachedWeapons.lua.
 if spawns("SpawnSkullCrusher") then
-    -- SurvivorItems e a lista compartilhada por SurvivorBag, SurvivorBag_Mid e SurvivorBag_Late.
-    -- Inserir aqui alcanca as tres eras de uma vez.
+    -- SurvivorItems e a lista compartilhada por SurvivorBag, SurvivorBag_Mid e SurvivorBag_Late:
+    -- os tres fazem `items = BagsAndContainers.SurvivorItems`, atribuicao por referencia
+    -- (Distribution_BagsAndContainers.lua:3240, :3255, :3270). Como table.insert muta no lugar,
+    -- inserir aqui alcanca as tres eras de uma vez e chega ao zumbi pelo campo `bags` do traje.
+    -- So funciona porque a chave existe: com o nome errado, o `or {}` do addToBag criaria uma
+    -- tabela orfa que ninguem referencia -- insercao sem efeito e sem erro.
     addToBag("SurvivorItems", "SiddigoWeapons.SkullCrusher", 2)
 
-    -- Os 5 conteineres da era Late. As eras base e _Mid ficam so com a mochila,
-    -- que nao tem como distinguir era.
-    local lateOutfits = {
-        "Outfit_Survivalist_Late",
-        "Outfit_Survivalist02_Late",
-        "Outfit_Survivalist03_Late",
-        "Outfit_Survivalist04_Late",
-        "Outfit_Survivalist05_Late",
-    }
-
-    local modDist = { all = {} }
-
-    for _, outfit in ipairs(lateOutfits) do
-        modDist.all[outfit] = {
-            items = {
-                "SiddigoWeapons.SkullCrusher", 2,
-            },
-        }
-    end
+    -- NAO inserir em Outfit_Survivalist*_Late.items. Essa lista e o bolso/corpo do zumbi e o
+    -- vanilla so poe miudeza ali (Photo, Spork, Whistle; de arma, so canivete dobravel).
+    -- Arma de tamanho real vai na mochila: Machete 4, ShotgunSawnoff 10 e
+    -- DoubleBarrelShotgunSawnoff 8 vivem em SurvivorItems
+    -- (Distribution_BagsAndContainers.lua:3218-3226). O SkullCrusher e Weight 6.0 e
+    -- TwoHandWeapon, entao nao passa nessa regua.
+    -- Testado in-game em 12/08/2026: a insercao no bolso funcionava (LootZed deu 1,2%, identico
+    -- ao HerbalistMag peso 2 da mesma janela) -- o problema era a camada, nao o registro.
 
     -- Listas onde o vanilla ja poe ferramenta de pedra.
     -- Museu (AnthropologyDisplay*) e antiquario (Antiques) ficam de fora de proposito.
@@ -64,8 +58,8 @@ if spawns("SpawnSkullCrusher") then
     addToProcList("MeleeWeapons",      "SiddigoWeapons.SkullCrusher", 0.5)
     addToProcList("MeleeWeapons_Late", "SiddigoWeapons.SkullCrusher", 2)
 
-    -- O abrigo e um conteiner da sala all, entao entra pelo merge de Distributions,
-    -- na mesma modDist de cima. Precisa vir antes do table.insert abaixo.
+    -- O abrigo e um conteiner da sala all, entao entra pelo merge de Distributions.
+    local modDist = { all = {} }
     modDist.all.shelter = {
         items = {
             "SiddigoWeapons.SkullCrusher", 1,
