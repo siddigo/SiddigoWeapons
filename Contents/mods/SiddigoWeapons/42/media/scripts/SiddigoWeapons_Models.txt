@@ -5,7 +5,7 @@ module Base
     {
         mesh = WorldItems/SkullCrusher,
         texture = WorldItems/SkullCrusher,
-        scale = 0.10,    
+        scale = 0.08,    
    
         attachment world
 		{

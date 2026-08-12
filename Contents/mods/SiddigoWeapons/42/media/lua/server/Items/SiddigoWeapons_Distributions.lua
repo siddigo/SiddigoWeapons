@@ -35,22 +35,16 @@ end
 -- 05-opcoes-de-sandbox/SPEC-03. A rota visivel nas costas do zumbi e o AttachedWeaponDefinitions,
 -- em arquivo proprio -- ver SiddigoWeapons_AttachedWeapons.lua.
 if spawns("SpawnSkullCrusher") then
-    -- SurvivorItems e a lista compartilhada por SurvivorBag, SurvivorBag_Mid e SurvivorBag_Late:
-    -- os tres fazem `items = BagsAndContainers.SurvivorItems`, atribuicao por referencia
-    -- (Distribution_BagsAndContainers.lua:3240, :3255, :3270). Como table.insert muta no lugar,
-    -- inserir aqui alcanca as tres eras de uma vez e chega ao zumbi pelo campo `bags` do traje.
-    -- So funciona porque a chave existe: com o nome errado, o `or {}` do addToBag criaria uma
-    -- tabela orfa que ninguem referencia -- insercao sem efeito e sem erro.
+    -- SurvivorItems e a mesma tabela que SurvivorBag, SurvivorBag_Mid e SurvivorBag_Late usam em
+    -- `items`, por referencia (Distribution_BagsAndContainers.lua:3240, :3255, :3270) -- inserir
+    -- aqui alcanca as tres eras e chega ao zumbi pelo campo `bags` do traje.
+    -- O nome da lista tem de existir: com nome errado, o `or {}` do addToBag cria uma tabela
+    -- orfa e a insercao nao tem efeito nem erro.
     addToBag("SurvivorItems", "SiddigoWeapons.SkullCrusher", 2)
 
-    -- NAO inserir em Outfit_Survivalist*_Late.items. Essa lista e o bolso/corpo do zumbi e o
-    -- vanilla so poe miudeza ali (Photo, Spork, Whistle; de arma, so canivete dobravel).
-    -- Arma de tamanho real vai na mochila: Machete 4, ShotgunSawnoff 10 e
-    -- DoubleBarrelShotgunSawnoff 8 vivem em SurvivorItems
-    -- (Distribution_BagsAndContainers.lua:3218-3226). O SkullCrusher e Weight 6.0 e
-    -- TwoHandWeapon, entao nao passa nessa regua.
-    -- Testado in-game em 12/08/2026: a insercao no bolso funcionava (LootZed deu 1,2%, identico
-    -- ao HerbalistMag peso 2 da mesma janela) -- o problema era a camada, nao o registro.
+    -- Arma de tamanho real vai na mochila, nao em Outfit_Survivalist*.items -- essa lista e o
+    -- bolso do zumbi e o vanilla so poe miudeza ali. Regua: peso e TwoHandWeapon. Ver
+    -- Documentacao/jogo/distribuicao-loot.md, secao "Qual das duas cargas recebe arma".
 
     -- Listas onde o vanilla ja poe ferramenta de pedra.
     -- Museu (AnthropologyDisplay*) e antiquario (Antiques) ficam de fora de proposito.
@@ -69,17 +63,15 @@ if spawns("SpawnSkullCrusher") then
     table.insert(Distributions, modDist)
 end
 
--- Revista de receitas. Peso calibrado por lista, nao uniforme -- 2a passada em 10/08/2026.
--- A 1a passada (peso 1 uniforme) foi testada via LootZed e corrigida: peso do mesmo item
--- pode ser 100x maior ou menor entre listas no proprio vanilla (ex: SmithingMag1 vale 1 em
--- SurvivalGear e 0.01 em LivingRoomShelf), entao peso fixo nao reproduz a curva do jogo.
+-- Revista de receitas. O peso e por lista, nao uniforme: no vanilla o mesmo item varia ate 100x
+-- entre listas (SmithingMag1 vale 1 em SurvivalGear e 0.01 em LivingRoomShelf), entao peso fixo
+-- nao reproduz a curva.
 --
--- Metodo: em cada lista, o peso copia o de PrimitiveToolMag1 quando ela existe ali; senao
--- o de SmithingMag1. `rolls` e propriedade da lista (nao do item), entao igualar o peso na
--- mesma lista reproduz a chance da revista de referencia exatamente, sem mexer em rolls.
--- Censo contra ProceduralDistributions.lua: 19 das 27 listas tem uma das duas; as outras 8
--- (grupo Camping/Outdoor inteiro + BookstoreOutdoors) so tem HuntingMag1/FishingMag1 no
--- vanilla -- sem ancora em Primitive/Smithing ali, usam peso fixo 0.01 por decisao explicita.
+-- Regra usada: copiar o peso de PrimitiveToolMag1 na lista, ou de SmithingMag1 se aquele nao
+-- estiver ali -- igualar o peso na mesma lista reproduz a chance da revista de referencia, ja que
+-- `rolls` e da lista e nao do item. O comentario ao lado de cada linha diz qual foi a ancora.
+-- As 8 listas sem comentario (Camping/Outdoor e BookstoreOutdoors) nao tem nenhuma das duas no
+-- vanilla e usam 0.01 fixo.
 if spawns("SpawnSurvivorCraftMag1") then
     local mag = "SiddigoWeapons.SurvivorCraftMag1"
 
