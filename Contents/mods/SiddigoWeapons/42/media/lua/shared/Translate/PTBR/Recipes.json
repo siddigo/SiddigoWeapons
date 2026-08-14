@@ -1,3 +1,6 @@
 {
-    "MakeSkullCrusher": "Fabricar Racha Cuca"
+    "MakeSkullCrusher": "Fabricar Racha Cuca",
+    "MakeSurvivorTorch": "Fabricar Tocha",
+    "LightSurvivorTorch": "Acender Tocha",
+    "ExtinguishSurvivorTorch": "Apagar Tocha"
 }

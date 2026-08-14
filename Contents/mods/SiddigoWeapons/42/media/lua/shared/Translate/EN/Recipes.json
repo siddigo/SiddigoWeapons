@@ -1,3 +1,6 @@
 {
-    "MakeSkullCrusher": "Make Skull Crusher"
+    "MakeSkullCrusher": "Make Skull Crusher",
+    "MakeSurvivorTorch": "Make Torch",
+    "LightSurvivorTorch": "Light Torch",
+    "ExtinguishSurvivorTorch": "Extinguish Torch"
 }

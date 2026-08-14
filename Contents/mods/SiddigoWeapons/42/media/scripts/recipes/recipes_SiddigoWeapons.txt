@@ -23,4 +23,57 @@ module Base
             item 1 SiddigoWeapons.SkullCrusher,
         }
     }
+
+    craftRecipe MakeSurvivorTorch
+    {
+        timedAction = Making,
+        time = 80,
+        Tags = InHandCraft,
+        category = Weaponry,
+        xpAward = Maintenance:5,
+        NeedToBeLearn = false,
+        inputs
+        {
+            item 1 [Base.LongStick;Base.TreeBranch2] mode:destroy flags[Prop1],
+            item 2 [Base.RippedSheets] mode:destroy,
+            item 1 [Base.Twine] mode:destroy,
+        }
+        outputs
+        {
+            item 1 SiddigoWeapons.Torch,
+        }
+    }
+
+    craftRecipe LightSurvivorTorch
+    {
+        timedAction = Making,
+        time = 30,
+        Tags = InHandCraft;CanBeDoneInDark,
+        category = Miscellaneous,
+        inputs
+        {
+            item 1 [SiddigoWeapons.Torch] mode:destroy flags[InheritUses;InheritCondition;ItemCount;AllowFavorite;InheritFavorite],
+            item 1 tags[base:startfire],
+        }
+        outputs
+        {
+            item 1 SiddigoWeapons.TorchLit flags[EquipSecondary;SetActivated],
+        }
+    }
+
+    craftRecipe ExtinguishSurvivorTorch
+    {
+        timedAction = Making,
+        time = 5,
+        Tags = InHandCraft;CanBeDoneInDark,
+        category = Miscellaneous,
+        inputs
+        {
+            item 1 [SiddigoWeapons.TorchLit] mode:destroy flags[InheritUses;InheritCondition;ItemCount;AllowFavorite;InheritFavorite],
+        }
+        outputs
+        {
+            item 1 SiddigoWeapons.Torch,
+        }
+    }
 }
