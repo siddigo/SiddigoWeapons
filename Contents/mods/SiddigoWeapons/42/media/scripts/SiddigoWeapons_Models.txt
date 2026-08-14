@@ -18,6 +18,25 @@ module Base
 			offset = 0.0100 -0.1000 0.0000,
 			rotate = 0.0000 90.0000 0.0000,
 		}
-    }		
+    }
 
-}   
+    model Slingshot
+    {
+        mesh = WorldItems/Handle,
+        texture = WorldItems/Handle,
+        scale = 0.4,
+
+        attachment world
+        {
+            offset = 0.0000 0.2000 -0.0300,
+            rotate = 0.0000 90.0000 87.0000,
+        }
+
+        attachment Bip01_Prop1
+        {
+            offset = 0.0100 -0.0500 0.0000,
+            rotate = 0.0000 90.0000 0.0000,
+        }
+    }
+
+}

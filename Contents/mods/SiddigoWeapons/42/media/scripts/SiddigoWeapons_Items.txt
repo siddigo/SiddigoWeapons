@@ -143,4 +143,75 @@ module SiddigoWeapons
         DoubleClickRecipe = ExtinguishSurvivorTorch,
         Tags = base:startfire,
     }
+
+    item Slingshot
+    {
+        DisplayCategory = WeaponCrafted,
+        ItemType = base:weapon,
+        Weight = 0.5,
+        Icon = Slingshot,
+        WorldStaticModel = Slingshot,
+        Ranged = true,
+        IsAimedFirearm = true,
+        SubCategory = Firearm,
+        SwingAnim = Handgun,
+        WeaponReloadType = boltactionnomag,
+        AmmoType = siddigoweapons:slingammo,
+        ClipSize = 1,
+        MaxAmmo = 1,
+        Projectilecount = 1,
+        Aimingtime = 20,
+        Reloadtime = 25,
+        Swingtime = 0.8,
+        MinimumSwingtime = 0.8,
+        MaxHitcount = 1,
+        HitChance = 35,
+        MinDamage = 0.3,
+        MaxDamage = 0.6,
+        MinRange = 0.61,
+        MaxRange = 8.0,
+        MinSightRange = 2,
+        MaxSightRange = 5.0,
+        MinAngle = 0.95,
+        StopPower = 1.0,
+        JamGunChance = 0,
+        RecoilDelay = 5,
+        SoundRadius = 8,
+        SoundVolume = 2,
+        SoundGain = 0.5,
+        ConditionLowerChanceOneIn = 40,
+        ConditionMax = 8,
+        KnockdownMod = 0.0,
+        KnockBackOnNoDeath = false,
+        PushBackMod = 0.1,
+        SplatBloodOnNoDeath = false,
+        SplatNumber = 1,
+        UseEndurance = false,
+        DoorDamage = 1,
+        TreeDamage = 0,
+        RunAnim = Run_Weapon2,
+        IdleAnim = Idle_Weapon2,
+        NoMuzzleFlash = TRUE,
+        MuzzleFlashModelKey = ,
+        WeaponSprite = Slingshot,
+        Tags = base:repairwithtape,
+    }
+
+    item SlingStone
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.05,
+        Icon = SlingStone,
+        count = 5,
+        Tags = siddigoweapons:slingammo;base:ammo,
+    }
+
+    item SlingAmmoRegistrar
+    {
+        DisplayCategory = Ammo,
+        ItemType = base:normal,
+        Weight = 0.01,
+        AmmoType = siddigoweapons:slingammo,
+    }
 }

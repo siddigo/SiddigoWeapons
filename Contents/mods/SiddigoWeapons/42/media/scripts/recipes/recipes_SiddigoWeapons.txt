@@ -76,4 +76,42 @@ module Base
             item 1 SiddigoWeapons.Torch,
         }
     }
+
+    craftRecipe MakeSlingshot
+    {
+        timedAction = Making,
+        time = 120,
+        Tags = InHandCraft,
+        category = Weaponry,
+        SkillRequired = Carving:1,
+        xpAward = Carving:5,
+        NeedToBeLearn = false,
+        inputs
+        {
+            item 1 [Base.TreeBranch2] mode:destroy flags[Prop1],
+            item 2 [Base.LeatherStrips] mode:destroy,
+            item 1 [Base.DuctTape] mode:destroy,
+        }
+        outputs
+        {
+            item 1 SiddigoWeapons.Slingshot,
+        }
+    }
+
+    craftRecipe MakeSlingStone
+    {
+        timedAction = Making,
+        time = 40,
+        Tags = InHandCraft,
+        category = Weaponry,
+        NeedToBeLearn = false,
+        inputs
+        {
+            item 1 [Base.Stone2] mode:destroy,
+        }
+        outputs
+        {
+            item 5 SiddigoWeapons.SlingStone,
+        }
+    }
 }
