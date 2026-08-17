@@ -1,17 +1,13 @@
--- Registro de identificadores do mod. Carregado antes dos scripts e de qualquer outro Lua.
--- O nome do arquivo e o local sao fixos: <versao>/media/registries.lua
+-- Registro dos identificadores do mod. Nome e local sao fixos: <versao>/media/registries.lua, lido
+-- antes de qualquer .txt -- sem ele, ID de namespace proprio nao existe para o parser.
 
 SiddigoWeapons = SiddigoWeapons or {}
 SiddigoWeapons.ItemTag = SiddigoWeapons.ItemTag or {}
 SiddigoWeapons.AmmoType = SiddigoWeapons.AmmoType or {}
 
--- Tag da municao de estilingue
 SiddigoWeapons.ItemTag.SlingAmmo = ItemTag.register("siddigoweapons:slingammo")
 
--- Tipo de municao: liga a arma ao item que serve de projetil.
--- 2o argumento e string "Modulo.Item" nesta build (42.20.2) -- ItemKey.new (forma do exemplo
--- oficial testmod_registries, 42.13) derruba o jogo ao ativar o mod: KahluaThread rejeita com
--- "expected argument of type String, got ItemKey" (zombie.scripting.objects.ModRegistries.init).
--- A API mudou entre 42.13 e 42.20.2, ou o exemplo nunca foi essa forma nesta build -- copie o
--- jogo instalado, nao o exemplo desatualizado.
+-- O 2o argumento e a string "Modulo.Item". NAO trocar por ItemKey.new (a forma do exemplo oficial
+-- testmod_registries, que e 42.13): nesta build o registro rejeita o ItemKey e o mod nem carrega.
+-- Ver Documentacao/jogo/scripts-txt.md, secao "Arma a distancia".
 SiddigoWeapons.AmmoType.SlingAmmo = AmmoType.register("siddigoweapons:slingammo", "SiddigoWeapons.SlingStone")
