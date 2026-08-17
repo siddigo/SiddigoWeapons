@@ -15,3 +15,19 @@ option SiddigoWeapons.SpawnSurvivorCraftMag1
     page = SiddigoWeapons,
     translation = SiddigoWeapons_SpawnSurvivorCraftMag1,
 }
+
+option SiddigoWeapons.SpawnTorch
+{
+    type = boolean,
+    default = true,
+    page = SiddigoWeapons,
+    translation = SiddigoWeapons_SpawnTorch,
+}
+
+option SiddigoWeapons.SpawnSlingshot
+{
+    type = boolean,
+    default = true,
+    page = SiddigoWeapons,
+    translation = SiddigoWeapons_SpawnSlingshot,
+}

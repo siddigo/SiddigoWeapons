@@ -75,6 +75,53 @@ local MOD_LOOT = {
             BookstoreCrafts     = 0.5,
         },
     },
+    {
+        fullType = "SiddigoWeapons.Torch",
+        sandboxOption = "SpawnTorch",
+
+        -- A versao acesa (TorchLit) nao entra em loot -- so existe depois de acender uma apagada,
+        -- achada ou fabricada.
+        bagLists = {
+            SurvivorItems = 4,
+        },
+
+        proceduralLists = {
+            ImprovisedCrafts  = 6,
+            MeleeWeapons      = 0.5,
+            MeleeWeapons_Late = 1.5,
+        },
+
+        roomContainers = {
+            { room = "all", container = "shelter", weight = 1 },
+        },
+    },
+    {
+        fullType = "SiddigoWeapons.Slingshot",
+        sandboxOption = "SpawnSlingshot",
+
+        -- SubCategory = Firearm, nao Swinging: nao entra em MeleeWeapons/MeleeWeapons_Late, que sao
+        -- listas de arma branca.
+        bagLists = {
+            SurvivorItems = 3,
+        },
+
+        proceduralLists = {
+            ImprovisedCrafts = 4,
+        },
+
+        roomContainers = {
+            { room = "all", container = "shelter", weight = 1 },
+        },
+    },
+    {
+        fullType = "SiddigoWeapons.SlingStone",
+        sandboxOption = "SpawnSlingshot",
+
+        -- Municao do estilingue: so na mochila, junto com a arma.
+        bagLists = {
+            SurvivorItems = 8,
+        },
+    },
 }
 
 local function warnLost(target, fullType)

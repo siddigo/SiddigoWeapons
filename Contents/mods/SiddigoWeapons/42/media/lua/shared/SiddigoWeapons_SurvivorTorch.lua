@@ -13,8 +13,20 @@ local CONDITION_PER_HOUR = 1
 local function igniteZombieOnTorchHit(zombie, attacker, bodyPart, weapon)
     if not zombie or not weapon then return end
     if weapon:getFullType() ~= LIT_TORCH then return end
+
+    -- Experimento (SPEC-05): a luz da tocha fica vermelha quando ela suja de sangue. Nenhuma
+    -- ligacao entre BloodLevel e cor de luz foi achada em Lua -- se existe, e Java sem gancho.
+    -- Limpar a cada acerto e a unica cadencia que testa a hipotese: o bug aparece durante o
+    -- combate, antes de qualquer passada periodica. Fica ANTES do sorteio de chance de proposito.
+    weapon:setBloodLevel(0)
+
     if ZombRand(IGNITE_CHANCE_ONE_IN) ~= 0 then return end
-    zombie:setOnFire(true)
+
+    -- setOnFire(true) nao tem precedente vanilla em zumbi (so debug de animal). StartFire e o
+    -- mecanismo real de incendio do jogo (SCampfireSystem.lua), sem o delay/inconsistencia relatado.
+    local sq = zombie:getSquare()
+    if not sq then return end
+    IsoFireManager.StartFire(getCell(), sq, true, 100, 500)
 end
 
 local function burnDownTorch(item, player)

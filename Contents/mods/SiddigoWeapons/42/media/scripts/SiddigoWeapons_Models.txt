@@ -36,5 +36,10 @@ module Base
             offset = 0.0100 -0.0500 0.0000,
             rotate = 0.0000 90.0000 0.0000,
         }
+
+        attachment holster_right
+        {
+            scale = 0.85,
+        }
     }
 }
